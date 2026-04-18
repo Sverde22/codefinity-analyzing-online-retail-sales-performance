@@ -7,9 +7,10 @@ df = pd.read_csv("online_retail.csv")
 
 df
 
-df["revenue"]=df["Quantity"]*df["UnitPrice"]
-customer_revenue=df.groupby("CustomerID")["revenue"].mean()
-print(customer_revenue)
+df["morethanten"]= df["Quantity"] > 10
+country_morethanten= df.groupby("Country")["morethanten"]
+proportion=country_morethanten.mean().sort_values(ascending=False)
+print(proportion)
 
 
 
